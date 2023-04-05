@@ -1,5 +1,5 @@
 palabra = input("Ingresá una palabra: ")
-if (("a" in palabra) or ("n" in palabra)):
-  print("Hay letras a o n.")
+if (("a" in palabra) and ("n" in palabra)):
+  print("Hay letras a y n.")
 else:
-  print("No hay letras a ni n")
+  print("No hay letras a y n")
