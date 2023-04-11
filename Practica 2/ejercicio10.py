@@ -1,11 +1,10 @@
 #####################################################################################
-# Funciones para INCISO A
+# Funciones para INCISO B
 
 def promedio_todos_estudiantes(informe):
     for estudiante in informe:
         prom = promedio_estudiante(estudiante)
         print('Promedio de ' + estudiante[0] + ': ' + str(prom))
-    print('\n')
 
 
 def promedio_estudiante(estudiante):
@@ -13,21 +12,20 @@ def promedio_estudiante(estudiante):
     return puntaje/len(estudiante[1:])
 
 #####################################################################################
-# Funciones para INCISO B
+# Funciones para INCISO C
 
 
 def promedio_general(informe):
     sumaPromedio = 0
     cantidad_alumnos = 0
 
-    for estudiante in informes:
+    for estudiante in informe:
         sumaPromedio += promedio_estudiante(estudiante)
         cantidad_alumnos += 1
 
     prom_final = sumaPromedio/cantidad_alumnos
-    print('Promedio General: ' + str(prom_final) + '\n')
+    print('Promedio General: ' + str(prom_final))
     return prom_final
-
 
 #def promedio_general_v2(informe):
 #   sumaPromedio = float(sum(map(lambda e: sum(e[1:]), informe)))
@@ -38,7 +36,7 @@ def promedio_general(informe):
 #    return prom_final
 
 #####################################################################################
-# Funciones para INCISO C
+# Funciones para INCISO D
 
 
 def alumno_mejor_promedio(informe):
@@ -54,7 +52,7 @@ def alumno_mejor_promedio(informe):
     return [nombreAlum, mejorPromedio]
 
 #####################################################################################
-# Funciones para INCISO D
+# Funciones para INCISO E
 
 
 def alumno_nota_baja(informe):
@@ -91,12 +89,16 @@ metodos = {
     1: promedio_todos_estudiantes,
     2: promedio_general,
     3: alumno_mejor_promedio,
-    4: alumno_nota_baja,
-    #5: promedio_general_v2
+    4: alumno_nota_baja
 }
+
+# Inciso A
+alumnos_formateados = list(map(lambda n: n.strip(), nombres.split(',')))
+informes = list(zip(alumnos_formateados, notas_1, notas_2))
 
 flag = True
 while (flag):
+    print()
     print('1 - Calcular Promedio de Notas de Cada Estudiante')
     print('2 - Calcular Promedio de Notas General')
     print('3 - Ver Alumno con Mejor Promedio')
@@ -106,5 +108,4 @@ while (flag):
     if (int(opc) == 0):
         flag = False
     else:
-        informes = list(zip(nombres.split(), notas_1, notas_2))
         metodos[int(opc)](informes)
